@@ -5,30 +5,18 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#ff479c",
-          "foreground": "#ffffff",
+          "background": "#474747",
+          "foreground": "#56B6C2",
           "leading_diamond": "",
           "style": "diamond",
           "template": "{{ .Location }}",
-          "trailing_diamond": "",
-          "type": "path"
-        },
-        {
-          "background": "#00be00",
-          "foreground": "#ffffff",
-          "background_templates": ["{{ if gt .Code 0 }}#ff0000{{ end }}"],
-          "properties": {
-            "always_enabled": true
-          },
-          "style": "diamond",
-          "template": " {{ .FormattedMs }}",
           "trailing_diamond": "",
-          "type": "executiontime"
+          "type": "path"
         },
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#00ff00",
+          "foreground": "#56B6C2",
           "template": "❯ "
         }
       ],
@@ -37,24 +25,40 @@
     {
       "segments": [
         {
-          "background": "#0077c2",
-          "foreground": "#ffffff",
-          "style": "plain",
-          "template": "<#0077c2,transparent></>  {{ .Name }} <transparent,#0077c2></>",
-          "type": "shell"
+          "background": "#474747",
+          "foreground": "#000000",
+          "properties": {
+            "time_format": "2006/01/02"
+          },
+          "style": "diamond",
+          "leading_diamond": "",
+          "template": "{{ .CurrentDate | date .Format }}",
+          "trailing_diamond": "",
+          "type": "time"
         },
         {
-          "background": "#2e9599",
-          "foreground": "#111111",
-          "invert_powerline": true,
-          "leading_diamond": "",
-          "style": "diamond",
+          "background": "#474747",
+          "foreground": "#000000",
           "properties": {
-            "time_format": "2006/01/02 15:04:05"
+            "time_format": "15:04:05"
           },
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "trailing_diamond": "",
+          "style": "diamond",
+          "template": "<transparent></> {{ .CurrentDate | date .Format }}",
+          "trailing_diamond": "",
           "type": "time"
+        },
+        {
+          "background": "#56B6C2",
+          "foreground": "#000000",
+          "background_templates": ["{{ if gt .Code 0 }}#E06C75{{ end }}"],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "leading_diamond": "<transparent></>",
+          "template": " {{ .FormattedMs }}",
+          "trailing_diamond": "",
+          "type": "executiontime"
         }
       ],
       "type": "rprompt"
@@ -62,12 +66,12 @@
   ],
   "valid_line": {
     "background": "transparent",
-    "foreground": "#00ff00",
+    "foreground": "#56B6C2",
     "template": "❯ "
   },
   "error_line": {
     "background": "transparent",
-    "foreground": "#ff0000",
+    "foreground": "#E06C75",
     "template": "❯ "
   },
   "version": 2
