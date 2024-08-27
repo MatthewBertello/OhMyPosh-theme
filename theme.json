@@ -5,6 +5,16 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "python",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#56B6C2",
+          "template": "( {{ .Venv}})",
+          "properties": {
+            "display_default": false
+          }
+        },
+        {
           "background": "#474747",
           "foreground": "#56B6C2",
           "leading_diamond": "",
