@@ -21,7 +21,10 @@
           "style": "diamond",
           "template": "{{ .Path }}",
           "trailing_diamond": "",
-          "type": "path"
+          "type": "path",
+          "properties": {
+            "style": "agnoster_short"
+          }
         },
         {
           "type": "text",
